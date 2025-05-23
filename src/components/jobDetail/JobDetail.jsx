@@ -4,6 +4,7 @@ import { useParams, useLocation } from "react-router-dom"
 import { getAnnonId } from "../../../utils/annonId"
 import toast from "react-hot-toast"
 import Modal from "../modal/Modal"
+
 import { API_URL } from "../../../utils/constants"
 
 const splitSkills = (jobTags = []) => {
