@@ -6,7 +6,6 @@ import axios from "axios"
 import ReactQuill from "react-quill"
 import "react-quill/dist/quill.snow.css"
 import toast from "react-hot-toast"
-import Modal from "../Modal/Modal"
 
 const splitSkills = (jobTags = []) => {
 	if (jobTags.length < 3) {
