@@ -1,0 +1,65 @@
+.card {
+	display: flex;
+	flex-direction: row;
+	position: relative;
+	align-items: center;
+	gap: 10px;
+	transition: transform 0.2s ease-in-out;
+	color: var(--primary-text);
+	padding: 20px 20px;
+	cursor: pointer;
+}
+
+article {
+	height: 125px;
+	width: 100%;
+	background: var(--primary-bg);
+
+	border-top: 1px solid var(--primary-border);
+}
+
+.logo {
+	width: 64px;
+	height: 64px;
+	object-fit: contain;
+	border-radius: 100px;
+}
+
+.cardContent {
+	display: flex;
+	flex-direction: column;
+	color: var(--primary-text);
+}
+.cardContent h3 {
+	font-size: 18px;
+	max-width: 400px;
+	padding: 0;
+	margin: 0;
+	color: var(--primary-text);
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+article :hover h3 {
+	color: var(--primary-color);
+	text-decoration-line: underline;
+}
+
+.cardContent h5 {
+	font-size: 16px;
+	padding: 0;
+	margin: 0;
+	color: var(--secondary-text);
+}
+
+.dateJob {
+	position: absolute;
+	top: 0;
+	right: 20px;
+}
+
+@media (width <= 1650px) {
+	.cardContent h3 {
+		max-width: 280px;
+	}
+}

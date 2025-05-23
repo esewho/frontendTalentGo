@@ -1,0 +1,94 @@
+.containerNav {
+	width: 100%;
+	height: 8%;
+	background-color: var(--primary-bg);
+	color: var(--primary-text);
+	padding: 0px 0px;
+	box-shadow: 0px 2px 5px var(--primary-shadow);
+	border-bottom: 1px solid var(--primary-border);
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+
+	align-items: center;
+}
+
+.navItems {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	gap: 2.5rem;
+	width: 80%;
+}
+
+.containerIcons {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 35px;
+}
+.containerIcons button {
+	background: none;
+	border: 0;
+	cursor: pointer;
+	padding: 0;
+	margin: 0;
+}
+
+.input {
+	display: flex;
+	align-items: center;
+}
+.input input {
+	background-color: var(--secondary-bg);
+	color: var(--primary-text);
+	width: 100%;
+	max-width: 300px;
+	height: 36px;
+	padding: 0 12px;
+	border: 1.5px solid var(--primary-border);
+	border-radius: 8px;
+	outline: none;
+	transition: border 0.2s ease, box-shadow 0.2s ease;
+	font-size: 14px;
+}
+.input input:focus {
+	border-color: var(--primary-color);
+	box-shadow: 0 0 0 3px rgba(100, 100, 255, 0.1);
+}
+.input button {
+	background: none;
+	border: none;
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+	color: red;
+}
+
+.input svg {
+	fill: var(--primary-icon);
+	transition: all 0.3s ease;
+}
+
+.input svg:hover {
+	fill: var(--primary-color);
+}
+
+.pLogo {
+	border: 4px solid var(--primary-color);
+	border-radius: 10%;
+	border-top-left-radius: 30%;
+	border-bottom-right-radius: 30%;
+	padding: 4px 8px;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-weight: 600;
+	cursor: pointer;
+	font-stretch: expanded;
+	color: var(--secondary-text);
+}
+
+@media (width <= 1650px) {
+	.navItems {
+		width: 85%;
+	}
+}
