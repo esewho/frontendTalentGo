@@ -6,6 +6,7 @@ import axios from "axios"
 import ReactQuill from "react-quill"
 import "react-quill/dist/quill.snow.css"
 import toast from "react-hot-toast"
+import { API_URL } from "../../../utils/constants"
 
 const splitSkills = (jobTags = []) => {
 	if (jobTags.length < 3) {
@@ -74,7 +75,7 @@ export default function CreateJobForm() {
 		data.append("candidate_required_location", jobData.location)
 
 		try {
-			const response = await axios.post(`http://localhost:3001/jobs`, data, {
+			const response = await axios.post(`${API_URL}/jobs`, data, {
 				headers: { "Content-Type": "application/json" },
 			})
 			const jobId = response.data.id

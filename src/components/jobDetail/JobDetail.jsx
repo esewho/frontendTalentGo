@@ -3,7 +3,8 @@ import style from "./jobDetail.module.css"
 import { useParams, useLocation } from "react-router-dom"
 import { getAnnonId } from "../../../utils/annonId"
 import toast from "react-hot-toast"
-import Modal from "../Modal/Modal"
+import Modal from "../modal/Modal"
+import { API_URL } from "../../../utils/constants"
 
 const splitSkills = (jobTags = []) => {
 	if (!Array.isArray(jobTags)) {
@@ -45,7 +46,7 @@ export default function JobDetail() {
 
 		try {
 			const res = await fetch(
-				`http://localhost:3001/users/${annonId}/savedJobs/${jobId}`,
+				`${API_URL}/users/${annonId}/savedJobs/${jobId}`,
 				{
 					method: "DELETE",
 					headers: { "Content-Type": "application/json" },
@@ -69,7 +70,7 @@ export default function JobDetail() {
 		const annonId = getAnnonId()
 		try {
 			const res = await fetch(
-				`http://localhost:3001/users/${annonId}/savedJobs/${jobId}`,
+				`${API_URL}/users/${annonId}/savedJobs/${jobId}`,
 				{
 					method: "POST",
 					headers: { "Content-Type": "application/json" },
@@ -94,7 +95,7 @@ export default function JobDetail() {
 	const fetchJobDetail = async () => {
 		const annonId = getAnnonId()
 		const response = await fetch(
-			`http://localhost:3001/jobs/${jobId}?annonId=${annonId}`
+			`${API_URL}/jobs/${jobId}?annonId=${annonId}`
 		).then((data) => data.json())
 		setJob(response)
 		console.log(response)

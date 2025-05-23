@@ -3,7 +3,7 @@ import style from "./savedJobList.module.css"
 import CardJob from "../CardJob/CardJob"
 import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
-
+import { API_URL } from "../../../utils/constants"
 import { getAnnonId } from "../../../utils/annonId"
 
 export default function SavedJobList() {
@@ -37,7 +37,7 @@ export default function SavedJobList() {
 
 	useEffect(() => {
 		setLoading(true)
-		fetch(`http://localhost:3001/users/${annonId}/savedJobs?offset=${page * 9}`)
+		fetch(`${API_URL}/users/${annonId}/savedJobs?offset=${page * 9}`)
 			.then((response) => response.json())
 			.then((data) => {
 				setJobs(data.rows || [])

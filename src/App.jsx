@@ -8,6 +8,7 @@ import Home from "./components/Home/Home"
 import JobDetail from "./components/jobDetail/JobDetail"
 import CreateJobForm from "./components/CreateJobForm/CreateJobForm"
 import SavedJobs from "./components/SavedJobs/savedJobs"
+import { API_URL } from "../utils/constants"
 
 function App() {
 	const navigate = useNavigate()
@@ -18,7 +19,7 @@ function App() {
 	useEffect(() => {
 		const annonId = getAnnonId()
 
-		fetch(`http://localhost:3001/users/${annonId}`, {
+		fetch(`${API_URL}/users/${annonId}`, {
 			method: "POST",
 			headers: { "Content-Type": "application/json" },
 		})

@@ -5,6 +5,7 @@ import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 import JobFilter from "../jobFilter/JobFilter"
 import { Toaster } from "react-hot-toast"
+import { API_URL } from "../../../utils/constants"
 
 export default function JobList() {
 	const [jobs, setJobs] = useState([])
@@ -42,7 +43,7 @@ export default function JobList() {
 	const [loading, setLoading] = useState(true)
 
 	useEffect(() => {
-		fetch(`http://localhost:3001/jobs/categories`)
+		fetch(`${API_URL}/jobs/categories`)
 			.then((response) => {
 				return response.json()
 			})
@@ -52,7 +53,7 @@ export default function JobList() {
 	}, [])
 
 	useEffect(() => {
-		fetch(`http://localhost:3001/jobs/locations`)
+		fetch(`${API_URL}/jobs/locations`)
 			.then((response) => {
 				return response.json()
 			})
@@ -70,9 +71,9 @@ export default function JobList() {
 	useEffect(() => {
 		setLoading(true)
 		fetch(
-			`http://localhost:3001/jobs?title=${queryInput}&offset=${
-				page * 9
-			}&category=${filters.category}&location=${filters.location}`
+			`${API_URL}/jobs?title=${queryInput}&offset=${page * 9}&category=${
+				filters.category
+			}&location=${filters.location}`
 		)
 			.then((response) => response.json())
 			.then((data) => {
