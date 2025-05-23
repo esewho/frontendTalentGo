@@ -6,7 +6,7 @@ import LayoutApp from "./layout/LayoutApp"
 import { getAnnonId } from "../utils/annonId"
 import Home from "./components/Home/Home"
 import JobDetail from "./components/jobDetail/JobDetail"
-import CreateJobForm from "./components/CreateJobForm/CreateJobForm"
+import CreateJobForm from "./components/createJobForm/CreateJobForm"
 import SavedJobs from "./components/SavedJobs/savedJobs"
 
 function App() {
