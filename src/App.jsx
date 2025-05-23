@@ -7,7 +7,7 @@ import { getAnnonId } from "../utils/annonId"
 import Home from "./components/Home/Home"
 import JobDetail from "./components/jobDetail/JobDetail"
 import CreateJobForm from "./components/CreateJobForm/CreateJobForm"
-import SavedJobs from "./components/SavedJobs/savedJobs"
+import SavedJobs from "./components/savedJobs/SavedJobs"
 
 function App() {
 	const navigate = useNavigate()
