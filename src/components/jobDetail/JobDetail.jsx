@@ -3,7 +3,6 @@ import style from "./jobDetail.module.css"
 import { useParams, useLocation } from "react-router-dom"
 import { getAnnonId } from "../../../utils/annonId"
 import toast from "react-hot-toast"
-import Modal from "../Modal/Modal"
 
 const splitSkills = (jobTags = []) => {
 	if (!Array.isArray(jobTags)) {
