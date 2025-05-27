@@ -22,7 +22,7 @@ const translateDate = (date) => {
 		: `Published ${differenceInDays} days ago`
 }
 
-export default function CardJob({ job, pathNavigate = "home" }) {
+export default function CardJob({ job, pathNavigate = "home", onDelete }) {
 	const { jobId: selectedJobId } = useParams()
 
 	const navigate = useNavigate()
@@ -78,6 +78,7 @@ export default function CardJob({ job, pathNavigate = "home" }) {
 					>
 						{job.title}
 					</h3>
+					<button onClick={onDelete(job.id)}>Remove</button>
 					<h5>{job.company_name}</h5>
 					<h5>
 						{job.candidate_required_location.length > 30
