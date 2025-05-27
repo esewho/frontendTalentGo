@@ -10,6 +10,19 @@
 	cursor: pointer;
 }
 
+.containerRemove {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.containerRemove button {
+	background: none;
+	border: none;
+	cursor: pointer;
+	padding: 10px 10px;
+}
+
 article {
 	height: 125px;
 	width: 100%;

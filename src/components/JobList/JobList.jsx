@@ -6,6 +6,7 @@ import { useSelector } from "react-redux"
 import JobFilter from "../jobFilter/JobFilter"
 import toast, { Toaster } from "react-hot-toast"
 import { API_URL } from "../../../utils/constants"
+import Swal from "sweetalert2"
 
 export default function JobList() {
 	const [jobs, setJobs] = useState([])
@@ -101,20 +102,31 @@ export default function JobList() {
 	}
 
 	const handleDelete = async (jobId) => {
-		try {
-			const response = await fetch(`${API_URL}/jobs/${jobId}`, {
-				method: "DELETE",
-			})
+		const result = await Swal.fire({
+			title: "Are you sure?",
+			text: "This job will be permanently deleted",
+			icon: "warning",
+			showCancelButton: true,
+			confirmButtonColor: "var(--primary-color)",
+			cancelButtonColor: "var(--primary-color)",
+			confirmButtonText: "Yes, delete it!",
+		})
+		if (result.isConfirmed) {
+			try {
+				const response = await fetch(`${API_URL}/jobs/${jobId}`, {
+					method: "DELETE",
+				})
 
-			if (!response.ok) {
-				throw new Error("Error al eliminar")
-			} else {
-				setJobs((prevJobs) => prevJobs.filter((job) => job.id !== jobId))
-				toast.success("Job removed!")
+				if (!response.ok) {
+					throw new Error("Error al eliminar")
+				} else {
+					setJobs((prevJobs) => prevJobs.filter((job) => job.id !== jobId))
+					toast.success("Job removed!")
+				}
+			} catch (error) {
+				console.error(error)
+				toast.error("Error al eliminar el trabajo")
 			}
-		} catch (error) {
-			console.error(error)
-			toast.error("Error al eliminar el trabajo")
 		}
 	}
 

@@ -78,33 +78,39 @@ export default function CardJob({ job, pathNavigate = "home", onDelete }) {
 					>
 						{job.title}
 					</h3>
-					<button
-						style={
-							isSelected
-								? {
-										textDecorationLine: "underline",
-										background: "none",
-										color: "var(--primary-color)",
-										cursor: "pointer",
-										border: "none",
-										position: "absolute",
-										top: "0",
-										left: "0",
-								  }
-								: {
-										background: "none",
-										color: "var(--primary-color)",
-										cursor: "pointer",
-										border: "none",
-										position: "absolute",
-										top: "0",
-										left: "0",
-								  }
-						}
-						onClick={() => onDelete(job.id)}
-					>
-						remove
-					</button>
+					<div className={style.containerRemove}>
+						<button onClick={() => onDelete(job.id)}>
+							<svg width="16" height="16" viewBox="0 0 24 24">
+								<g
+									fill="none"
+									stroke="#0284c7"
+									stroke-dasharray="24"
+									stroke-dashoffset="24"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+								>
+									<path d="M5 5l14 14">
+										<animate
+											fill="freeze"
+											attributeName="stroke-dashoffset"
+											dur="0.4s"
+											values="24;0"
+										/>
+									</path>
+									<path d="M19 5l-14 14">
+										<animate
+											fill="freeze"
+											attributeName="stroke-dashoffset"
+											begin="0.4s"
+											dur="0.4s"
+											values="24;0"
+										/>
+									</path>
+								</g>
+							</svg>
+						</button>
+					</div>
 					<h5>{job.company_name}</h5>
 					<h5>
 						{job.candidate_required_location.length > 30
