@@ -78,7 +78,33 @@ export default function CardJob({ job, pathNavigate = "home", onDelete }) {
 					>
 						{job.title}
 					</h3>
-					<button onClick={onDelete(job.id)}>Remove</button>
+					<button
+						style={
+							isSelected
+								? {
+										textDecorationLine: "underline",
+										background: "none",
+										color: "var(--primary-color)",
+										cursor: "pointer",
+										border: "none",
+										position: "absolute",
+										top: "0",
+										left: "0",
+								  }
+								: {
+										background: "none",
+										color: "var(--primary-color)",
+										cursor: "pointer",
+										border: "none",
+										position: "absolute",
+										top: "0",
+										left: "0",
+								  }
+						}
+						onClick={() => onDelete(job.id)}
+					>
+						remove
+					</button>
 					<h5>{job.company_name}</h5>
 					<h5>
 						{job.candidate_required_location.length > 30

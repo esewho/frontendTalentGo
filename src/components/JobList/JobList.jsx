@@ -108,10 +108,10 @@ export default function JobList() {
 
 			if (!response.ok) {
 				throw new Error("Error al eliminar")
+			} else {
+				setJobs((prevJobs) => prevJobs.filter((job) => job.id !== jobId))
+				toast.success("Job removed!")
 			}
-
-			setJobs((prevJobs) => prevJobs.filter((job) => job.id !== jobId))
-			toast.success("¡Trabajo eliminado!")
 		} catch (error) {
 			console.error(error)
 			toast.error("Error al eliminar el trabajo")
